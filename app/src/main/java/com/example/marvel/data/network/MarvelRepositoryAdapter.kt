@@ -19,16 +19,21 @@ class MarvelRepositoryAdapter @Inject constructor(
     override suspend fun getAllCharacterFromApi(offset: Int): List<MovieCharacter> {
         val response = marvelService.getAllCharacters(offset = offset.toString())
         val characters = response.data.movieCharacterDTOS
-        return characters.stream().map { it.toDomain() }.collect(toList())
+        return characters.stream()
+            .map { it.toDomain() }
+            .collect(toList())
     }
 
-    override suspend fun getAllCharacterFromRoom(offset: Int): List<MovieCharacter> {
+    override suspend fun getAllCharacterFromRoom(): List<MovieCharacter> {
         TODO("Not yet implemented")
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
     override suspend fun insertCharacter(characters: List<MovieCharacter>) {
-        movieCharacterDao.insertAll(characters.stream().map{it.toEntity()}.collect(toList()))
+        movieCharacterDao.insertAll(
+            characters.stream()
+                .map{it.toEntity()}
+                .collect(toList()))
     }
 
     override suspend fun clearCharacter() {

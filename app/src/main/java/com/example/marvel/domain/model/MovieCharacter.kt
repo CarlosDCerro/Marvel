@@ -12,6 +12,17 @@ data class MovieCharacter(
     val thumbnail: Thumbnail,
     val comics: Comic?
 )
-fun MovieCharacterDTO.toDomain() = MovieCharacter(id, name, description, thumbnail, comics)
-fun MovieCharacterEntity.toDomain() = MovieCharacter(id, name, description, thumbnail, null)
+fun MovieCharacterDTO.toDomain() = MovieCharacter(
+        id,
+        name,
+        description,
+        thumbnail,
+        comics)
+
+fun MovieCharacterEntity.toDomain() = MovieCharacter(
+        id,
+        name,
+        description,
+        thumbnail,
+        null)
 

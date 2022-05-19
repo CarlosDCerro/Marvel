@@ -1,6 +1,5 @@
 package com.example.marvel.ui.CharactersList
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marvel.domain.useCase.GetAllCharactersUseCase
@@ -26,7 +25,6 @@ class CharactersViewModel @Inject constructor(
                 is Response.Success -> {
                     marvelValue.value = MarvelListState(
                         characterList = it.data?: emptyList())
-                    Log.d("DATOS DESDE EL VIEWMODEL: ",it.data.toString())
                 }
                 is Response.Loading -> {
                     marvelValue.value = MarvelListState(
