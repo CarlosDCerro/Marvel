@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.marvel.domain.model.MovieCharacter
+import com.example.marvel.data.database.entity.MovieCharacterEntity
+
 
 @Composable
-fun ItemCharracter(personaje: MovieCharacter){
+fun ItemCharracter(personaje: MovieCharacterEntity){
 
     Box(contentAlignment = Alignment.CenterStart,
         modifier = Modifier

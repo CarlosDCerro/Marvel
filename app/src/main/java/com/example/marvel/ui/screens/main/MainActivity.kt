@@ -18,12 +18,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
-           MarvelApp { GeneralView() }
+            MarvelApp { GeneralView() }
         }
     }
 }
 
-@Preview(showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GeneralView(){
     CallApi()
@@ -36,7 +36,7 @@ fun GeneralView(){
 
 @Composable
 fun CallApi(viewModel: CharactersViewModel = hiltViewModel()){
-    val offset = 20
+    val offset = 100
     val movieCharacters = viewModel.getAllCharactersData(offset)
 
 }
@@ -50,7 +50,6 @@ fun MarvelApp(content: @Composable ()  -> Unit){
         }
     }
 }
-
 
 
 

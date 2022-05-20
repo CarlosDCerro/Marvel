@@ -1,11 +1,10 @@
 package com.example.marvel.ui.screens.main
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -16,15 +15,11 @@ import com.example.marvel.ui.theme.C10
 
 @Composable
 fun Name(name: String, descriptions: String){
-    var expanded by remember { mutableStateOf(false) }
     Card(elevation = 16.dp,
         shape = RoundedCornerShape(16.dp),
         backgroundColor = C10,
         modifier = Modifier
-            .width(380.dp)
-            .clickable {
-                expanded = !expanded
-            }) {
+            .width(380.dp)) {
         Box(
             Modifier
                 .wrapContentSize(Alignment.CenterStart)
@@ -35,8 +30,7 @@ fun Name(name: String, descriptions: String){
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Start)
 
-                Desc(descriptions = descriptions,
-                    lines = if(expanded) Int.MAX_VALUE else 1)
+                Desc(descriptions = descriptions)
             }
         }
     }

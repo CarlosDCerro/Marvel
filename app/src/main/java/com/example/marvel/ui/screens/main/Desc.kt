@@ -7,10 +7,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Desc(descriptions: String, lines: Int = Int.MAX_VALUE){
+fun Desc(descriptions: String){
     Text(descriptions,
         fontSize = 20.sp,
         fontWeight = FontWeight.Light,
-        textAlign = TextAlign.Start,
-        maxLines = lines)
+        textAlign = TextAlign.Start)
 }

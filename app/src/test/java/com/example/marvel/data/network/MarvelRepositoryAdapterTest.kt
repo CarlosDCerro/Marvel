@@ -2,8 +2,6 @@ package com.example.marvel.data.network
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.marvel.data.database.dao.MovieCharacterDao
-import com.example.marvel.data.network.dto.*
-import com.example.marvel.util.common.Thumbnail
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -31,16 +29,22 @@ class MarvelRepositoryAdapterTest{
     }
 
     @Test
-    fun `get all characters from api and mapping the response`() = runBlocking {
+    fun `get all characters from api and mapping the response`(): Unit = runBlocking {
         //Given
+        val listCharactersApi = TestMarvelRepositpryAdapterData.getDataFromApi()
+        val listCharactersRoom = TestMarvelRepositpryAdapterData.getDataFromRoom()
 
-        coEvery { marvelService.getAllCharacters(offset = any()).data.movieCharacterDTOS } returns emptyList() //MockK de la respuesta del Api
-        coEvery { movieCharacterDao.getAll() } returns emptyList() //MockK de la respuesta
+        coEvery { marvelService
+            .getAllCharacters(offset = any())
+            .data
+            .movieCharacterDTOS } returns listCharactersApi
+
+        coEvery { movieCharacterDao.getAll() } returns listCharactersRoom
+
         //when
-        marvelRepositoryAdapter.getAllCharacterFromApi(1)
+        val response = marvelRepositoryAdapter.getAllCharacterFromApi(1)
+
         //Then
-        
+        //assertTrue(response == listCharacters[0])
     }
-
-
 }
