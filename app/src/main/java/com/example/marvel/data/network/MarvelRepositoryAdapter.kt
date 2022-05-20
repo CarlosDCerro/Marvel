@@ -1,7 +1,5 @@
 package com.example.marvel.data.network
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.marvel.data.database.dao.MovieCharacterDao
 import com.example.marvel.data.database.entity.toEntity
 import com.example.marvel.domain.model.MovieCharacter
@@ -15,7 +13,6 @@ class MarvelRepositoryAdapter @Inject constructor(
     private val marvelService: MarvelService,
     private val movieCharacterDao: MovieCharacterDao
 ) : MarvelRepository {
-    @RequiresApi(Build.VERSION_CODES.N)
     override suspend fun getAllCharacterFromApi(offset: Int): List<MovieCharacter> {
         val response = marvelService.getAllCharacters(offset = offset.toString())
         val characters = response.data.movieCharacterDTOS
@@ -26,7 +23,6 @@ class MarvelRepositoryAdapter @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override suspend fun insertCharacter(characters: List<MovieCharacter>) {
         movieCharacterDao.insertAll(characters.stream().map{it.toEntity()}.collect(toList()))
     }

@@ -11,5 +11,6 @@ fun Desc(descriptions: String){
     Text(descriptions,
         fontSize = 20.sp,
         fontWeight = FontWeight.Light,
-        textAlign = TextAlign.Start)
+        textAlign = TextAlign.Start,
+        maxLines = 4)
 }

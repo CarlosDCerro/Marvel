@@ -7,9 +7,9 @@ import com.example.marvel.domain.useCase.GetAllCharactersUseCase
 import com.example.marvel.util.Response
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -84,7 +84,7 @@ class CharactersViewModelTest {
 
         // Test and verify
         launch { charactersViewModel.getAllCharactersData(1) }
-        coVerify { getAllCharactersUseCaseMock(1) }
+        verify { getAllCharactersUseCaseMock(1) }
     }
 
 }

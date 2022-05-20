@@ -5,8 +5,6 @@ import com.example.marvel.domain.model.MovieCharacter
 import com.example.marvel.domain.model.repository.MarvelRepository
 import com.example.marvel.util.Response
 import io.mockk.MockKAnnotations
-import io.mockk.impl.annotations.InjectMockKs
-import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertTrue
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
@@ -18,11 +16,6 @@ import org.mockito.kotlin.mock
 
 class GetAllCharactersUseCaseTest {
 
-    @MockK
-    private lateinit var repository: MarvelRepository
-
-    @InjectMockKs
-    //private lateinit var getAllCharactersUseCase: GetAllCharactersUseCase
     private lateinit var expected: List<Response<List<MovieCharacter>>>
 
     @Before
