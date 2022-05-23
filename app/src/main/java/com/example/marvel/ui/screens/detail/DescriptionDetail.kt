@@ -1,5 +1,6 @@
 package com.example.marvel.ui.screens.detail
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.marvel.ui.theme.C5
 
 @Composable
 fun DescriptionDetail(Desc: String) {
@@ -22,7 +24,9 @@ fun DescriptionDetail(Desc: String) {
         fontSize = 22.sp,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.End,
-        modifier = Modifier.padding(12.dp))
+        modifier = Modifier
+            .padding(12.dp)
+            .background(C5))
     Card(backgroundColor = Color.Transparent,
         shape = RoundedCornerShape(16.dp)
     ) {

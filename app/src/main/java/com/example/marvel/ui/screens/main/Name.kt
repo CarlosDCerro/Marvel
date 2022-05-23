@@ -12,12 +12,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.marvel.ui.theme.C10
+import com.example.marvel.ui.theme.C4
+
 
 @Composable
 fun Name(name: String, descriptions: String){
     Card(elevation = 16.dp,
         shape = RoundedCornerShape(16.dp),
-        backgroundColor = C10,
+        backgroundColor = C4,
         modifier = Modifier
             .width(380.dp)) {
         Box(
@@ -28,7 +30,8 @@ fun Name(name: String, descriptions: String){
                 Text(name,
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Start)
+                    textAlign = TextAlign.Start,
+                color = C10)
 
                 Desc(descriptions = descriptions)
             }

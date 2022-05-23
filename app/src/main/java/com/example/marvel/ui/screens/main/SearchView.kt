@@ -3,11 +3,9 @@ package com.example.marvel.ui.screens.main
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.runtime.Composable
@@ -20,6 +18,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.marvel.ui.theme.C4
+import com.example.marvel.ui.theme.C5
 import com.example.marvel.ui.theme.C8
 
 @Preview(showBackground = true)
@@ -29,8 +29,7 @@ fun SearchView(){
     Surface(
         modifier = Modifier
         .fillMaxWidth(),
-        color = Color.Transparent,
-        elevation = 8.dp){
+        color = Color.Transparent){
 
         Row(modifier = Modifier.fillMaxWidth()) {
             TextField(
@@ -38,12 +37,20 @@ fun SearchView(){
                     .fillMaxWidth()
                     .padding(8.dp),
                 value = search,
+                shape = RoundedCornerShape(8.dp),
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = C4,
+                    cursorColor = C8,
+                    disabledLabelColor = Color.Transparent,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
                 onValueChange = {
                     TODO() // Hacer la búsqueda en Room por el nombre
                 },
                 label = {
                     Text(text = "Search your favorite character...",
-                    color = C8
+                    color = C5
                     )
                 },
                 keyboardOptions = KeyboardOptions(
@@ -54,7 +61,7 @@ fun SearchView(){
                     Icon(
                         Icons.Rounded.Search,
                         contentDescription = "Search your favorite character of Marvel universe.",
-                    tint = C8)
+                    tint = C5)
                 }
 
             )

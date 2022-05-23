@@ -34,7 +34,6 @@ fun GeneralView(
     onAddClick: (() -> Unit)? = null,
     personage: List<MovieCharacter>
 ){
-
     onAddClick?.invoke()
     Scaffold(topBar = {
         MainAppBar()
@@ -46,7 +45,7 @@ fun GeneralView(
 
 @Composable
 fun MarvelApp(viewModel: CharactersViewModel = hiltViewModel()){
-    val offset = 20
+    val offset = 80
     val state = viewModel._marvelValue.collectAsState().value
     GeneralView(
         onAddClick = {

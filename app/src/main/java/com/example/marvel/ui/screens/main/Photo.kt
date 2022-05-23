@@ -22,8 +22,15 @@ fun Photo(imgUrl: String, imgExt: String){
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .height(220.dp)
-            .width(150.dp)) {
-        val image ="${imgUrl}/portrait_xlarge.${imgExt}"
+            .width(150.dp))
+    {
+        val imageUrl = imgUrl.replace(
+            oldValue = "http",
+            newValue = "https",
+            ignoreCase = false
+        )
+        val image ="${imageUrl}/portrait_xlarge.${imgExt}"
+        //val image ="${imgUrl}/portrait_xlarge.${imgExt}"
         SubcomposeAsyncImage(
             model = image,
             contentDescription = "stringResource()",

@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
+import com.example.marvel.ui.theme.C10
 
 private val im = "http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73"
 private val xt = "jpe"
@@ -73,7 +74,7 @@ fun ImageDetail(name: String = na,
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.End,
-                color = MaterialTheme.colors.background,
+                color = C10,
                 modifier = Modifier.padding(start = 20.dp, bottom = 10.dp))
         }
     }

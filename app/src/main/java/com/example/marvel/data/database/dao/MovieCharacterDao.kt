@@ -1,13 +1,12 @@
 package com.example.marvel.data.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.marvel.data.database.entity.MovieCharacterEntity
 
 @Dao
 interface MovieCharacterDao {
     @Query("SELECT * FROM character ORDER BY id ASC")
-    fun getAll(): LiveData<List<MovieCharacterEntity>>
+    fun getAll(): List<MovieCharacterEntity>
 
     @Query("SELECT * FROM character WHERE name LIKE '%' || :name || '%' ORDER BY id ASC")
     fun getByName(name: String): MovieCharacterEntity

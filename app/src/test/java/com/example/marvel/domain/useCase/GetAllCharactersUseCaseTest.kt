@@ -45,7 +45,7 @@ class GetAllCharactersUseCaseTest {
         // Mock
         val marvelRepository = mock<MarvelRepository>() {
             onBlocking {
-                getAllCharacterFromRoom(any())
+                getAllCharacterFromRoom()
             } doReturn TestMovieCharacterData.getMovieCharacterData()
 
             onBlocking {

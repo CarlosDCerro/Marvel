@@ -21,7 +21,7 @@ class GetAllCharactersUseCase @Inject constructor(
                 repository.clearCharacter()
                 repository.insertCharacter(list)
             } else {
-                list = repository.getAllCharacterFromRoom(offset = offset)
+                list = repository.getAllCharacterFromRoom()
             }
             emit(Response.Success(list))
         }
