@@ -8,7 +8,9 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun Desc(descriptions: String){
-    Text(descriptions,
+    val Desc = if(descriptions == "") "No information..." else descriptions
+    Text(
+        text = Desc,
         fontSize = 20.sp,
         fontWeight = FontWeight.Light,
         textAlign = TextAlign.Start,
