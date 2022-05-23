@@ -7,12 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.marvel.domain.model.MovieCharacter
 import com.example.marvel.ui.theme.C3
 
 
 @Composable
-fun ItemCharracter(personaje: MovieCharacter){
+fun ItemCharracter(
+    personage: MovieCharacter,
+    navControllerItem: NavController
+    ){
 
     Box(contentAlignment = Alignment.CenterStart,
         modifier = Modifier
@@ -20,9 +24,9 @@ fun ItemCharracter(personaje: MovieCharacter){
             .background(C3)
     ) {
         Name(
-            name = personaje.name,
-            descriptions = personaje.description)
-        Photo(imgUrl = personaje.thumbnail.path,
-            imgExt = personaje.thumbnail.extension)
+            name = personage.name,
+            descriptions = personage.description)
+        Photo(imgUrl = personage.thumbnail.path,
+            imgExt = personage.thumbnail.extension)
     }
 }
